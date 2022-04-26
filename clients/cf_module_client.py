@@ -29,8 +29,15 @@ class CFModuleClient(object):
         response = self.stub.convert_sink(s_request)
         return ConvertSinkOutputModel().from_grpc(response)
 
-    def convert_source(self, group_of_sources: Dict[str, Any]) -> ConvertSourceOutputModel:
-        pass
+    def convert_source(self, platform: Dict[str, Any], gis_module: Dict[str, Any], cf_module: Dict[str, Any]) -> ConvertSourceOutputModel:
+        s_request = ConvertSourceInput(
+            platform=jsonpickle.encode(platform, unpicklable=True),
+            gis_module=jsonpickle.encode(gis_module, unpicklable=True),
+            cf_module=jsonpickle.encode(cf_module, unpicklable=True),
+        )
+
+        response = self.stub.convert_source(s_request)
+        return ConvertSourceOutputModel().from_grpc(response)
 
     def convert_pinch(self, _input: Dict[str, Any]) -> ConvertPinchOutputModel:
         pass
