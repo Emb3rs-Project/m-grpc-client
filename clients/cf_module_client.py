@@ -25,7 +25,7 @@ class CFModuleClient(object):
 
     def convert_sink(self, _input: Dict[str, Any]) -> ConvertSinkOutputModel:
         s_request = PlatformOnlyInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
 
         response = self.stub.convert_sink(s_request)
@@ -33,9 +33,9 @@ class CFModuleClient(object):
 
     def convert_source(self, platform: Dict[str, Any], gis_module: Dict[str, Any], cf_module: Dict[str, Any]) -> ConvertSourceOutputModel:
         s_request = ConvertSourceInput(
-            platform=jsonpickle.encode(platform, unpicklable=True),
-            gis_module=jsonpickle.encode(gis_module, unpicklable=True),
-            cf_module=jsonpickle.encode(cf_module, unpicklable=True),
+            platform=jsonpickle.encode(platform, unpicklable=False),
+            gis_module=jsonpickle.encode(gis_module, unpicklable=False),
+            cf_module=jsonpickle.encode(cf_module, unpicklable=False),
         )
 
         response = self.stub.convert_source(s_request)
@@ -43,35 +43,35 @@ class CFModuleClient(object):
 
     def convert_pinch(self, _input: Dict[str, Any]) -> ConvertPinchOutputModel:
         s_request = PlatformOnlyInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
         response = self.stub.convert_pinch(s_request)
         return ConvertPinchOutputModel().from_grpc(response)
 
     def convert_orc(self, _input: Dict[str, Any]) -> ConvertOrcOutputModel:
         s_request = PlatformOnlyInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
         response = self.stub.convert_orc(s_request)
         return ConvertOrcOutputModel().from_grpc(response)
 
     def char_simple(self, _input: Dict[str, Any]) -> CharacterizationSourceOutputModel:
         s_request = CharacterizationInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
         response = self.stub.char_simple(s_request)
         return CharacterizationSourceOutputModel().from_grpc(response)
 
     def char_building(self, _input: Dict[str, Any]) -> CharacterizationSinkOutputModel:
         s_request = CharacterizationInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
         response = self.stub.char_building(s_request)
         return CharacterizationSinkOutputModel().from_grpc(response)
 
     def char_greenhouse(self, _input: Dict[str, Any]) -> CharacterizationSinkOutputModel:
         s_request = CharacterizationInput(
-            platform=jsonpickle.encode(_input, unpicklable=True)
+            platform=jsonpickle.encode(_input, unpicklable=False)
         )
         response = self.stub.char_greenhouse(s_request)
         return CharacterizationSinkOutputModel().from_grpc(response)

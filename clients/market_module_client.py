@@ -22,7 +22,7 @@ class MarketModuleClient(object):
 
     def run_short_term(self, _input: Dict[str, Any]) -> MarketOutputModel:
         s_request = MarketInput(
-            input=jsonpickle.encode(_input, unpicklable=True)
+            input=jsonpickle.encode(_input, unpicklable=False)
         )
 
         response = self.stub.RunShortTermMarket(s_request)
@@ -30,7 +30,7 @@ class MarketModuleClient(object):
 
     def run_long_term(self, _input: Dict[str, Any]) -> MarketOutputModel:
         s_request = MarketInput(
-            input=jsonpickle.encode(_input, unpicklable=True)
+            input=jsonpickle.encode(_input, unpicklable=False)
         )
 
         response = self.stub.RunLongTermMarket(s_request)
