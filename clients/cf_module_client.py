@@ -30,9 +30,6 @@ class CFModuleClient(object):
         return ConvertSinkOutputModel().from_grpc(response)
 
     def convert_source(self, group_of_sources: Dict[str, Any]) -> ConvertSourceOutputModel:
-        s_request = ConvertSourceInput(
-            group_of_sources
-        )
         pass
 
     def convert_pinch(self, _input: Dict[str, Any]) -> ConvertPinchOutputModel:
