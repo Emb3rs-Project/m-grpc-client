@@ -1,0 +1,12 @@
+{
+    "md" : "pool",
+    "offer_type" : "simple",
+    "network" : "none",
+    "el_dependent" : false,
+    "nr_of_hours" : 12,
+    "start_datetime" : "31-03-2022",
+    "util": {
+        "stream_1" : [0,1],
+        "stream_2" : [0,1]
+    }
+}

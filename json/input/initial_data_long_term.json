@@ -1,0 +1,10 @@
+{
+    "md" : "centralized",
+    "start_datetime" : "31-03-2022",
+    "util":  [0,1],
+    "horizon_basis" : "years",
+    "data_profile" : "hourly",
+    "recurrence" : 1,
+    "yearly_demand_rate" : 0,
+    "prod_diff_option" : "noPref"
+}

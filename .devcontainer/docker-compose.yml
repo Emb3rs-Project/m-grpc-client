@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        # Optional Node.js version to install
+        NODE_VERSION: "none"
+    env_file:
+      - .env
+
+    volumes:
+      - ..:/workspace:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    networks:
+      - embers
+
+volumes:
+  postgres-data: null
+
+networks:
+    embers:
+        driver: bridge
